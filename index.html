@@ -9,10 +9,50 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Send A Joke</title>
 </head>
-
 <body>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
     <script src="./assests/js/script.js"></script>
-</body>
+    <h1>Send a Joke!</h1>
+    <form id="creator">
+        <!-- Who is the card for? -->
+        <h4>Who is the lucky one?</h4>
+        <br>
+        <input type="text" id="receiver-text">
+        <br><br>
+        <!-- Pick a message with the radio buttons below -->
+        <h4>What's the occasion?</h4><br>
+        <input type="radio" name="cardType" id="type1" value="birthday" checked> Happy Birthday!<br>
+        <input type="radio" name="cardType" id="type2" value="holidays"> Happy Holidays!<br>
+        <input type="radio" name="cardType" id="type3" value="missing-you"> Missing you!<br>
+        <input type="radio" name="cardType" id="type4" value="congratulations"> Congratulations!<br>
+        <br>
+        <!-- Add colors -->
+        <h4>Select the background and font colors</h4><br>
+        <span>Background color</span><br>
+        <input type="color" id="background-color"><br>
+        <br>
+        <span>Font color</span><br>
+        <input type="color" id="font-color"><br>
+        <br>
+        <!-- Add a picture -->
+        <h4>Add a picture</h4><br>
+        <select name="picture" id="picture">
+            <option value="kitten">Kitten</option>
+            <option value="puppy">Puppy</option>
+            <option value="clown">Clown</option>
+            <option value="surprise">Surprise me</option>
+        </select>
+        <button id="add-picture">Add picture</button>
+        <br><br>
+        <!-- Who is the card from? -->
+        <h4>Sign your card</h4>
+        <br>
+        <input type="text" id="senderText">
+        <br><br>
+        <!-- Make your card by clicking on this button -->
+        <button id ="add-joke">Add a joke</button><br>
+        <button id="createBtn" onclick="">Make your card</button>
+    </form>
+    </body>
 </html>
