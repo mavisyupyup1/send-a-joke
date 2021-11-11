@@ -15,10 +15,12 @@ var getJoke = function(category){
 getJoke();
 
 var getImage = function(category){
-    var apiUrl = "https://dog.ceo/api/breeds/image/random";
-
+    var dogApiUrl = "https://dog.ceo/api/breeds/image/random";
+    var catApiUrl = "https://api.thecatapi.com/v1/images/search";
+    var koalaApiUrl ="https://some-random-api.ml/img/koala"
+    var birdApiUrl ="https://some-random-api.ml/animal/birb"
     //make a request to the url
-    fetch(apiUrl)
+    fetch(birdApiUrl)
     .then(function(response){
     if(response.ok){
         response.json().then(function(data){
@@ -29,3 +31,5 @@ var getImage = function(category){
 })
 }
 getImage();
+
+
