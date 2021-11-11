@@ -1,3 +1,10 @@
+var makeYourCardEl =document.getElementById("createBtn");
+var generateCard =function(){
+    event.preventDefault();
+    console.log("here")
+getJoke();
+getImage();
+}
 var getJoke = function(category){
     var apiUrl = "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Dark,Pun,Spooky,Christmas";
 
@@ -12,7 +19,7 @@ var getJoke = function(category){
     }
 })
 }
-getJoke();
+
 
 var getImage = function(category){
     var apiUrl = "https://dog.ceo/api/breeds/image/random";
@@ -28,4 +35,6 @@ var getImage = function(category){
     }
 })
 }
-getImage();
+
+
+makeYourCardEl.addEventListener("click", generateCard)

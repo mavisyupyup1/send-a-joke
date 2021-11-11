@@ -6,19 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="style" href="./assets/css/style.css">
     <title>Send A Joke</title>
 </head>
-<body>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
-    <script src="./assests/js/script.js"></script>
+<body class="flex-column min-100-vh container-fluid">
+  <main class="row justify-space-between" > 
+    <div class="col-12 col-md-4">
     <h1>Send a Joke!</h1>
     <form id="creator">
         <!-- Who is the card for? -->
         <h4>Who is the lucky one?</h4>
         <br>
-        <input type="text" id="receiver-text">
+        <input type="text" id="receiver-text" placeholder=" Recipient's Name">
         <br><br>
         <!-- Pick a message with the radio buttons below -->
         <h4>What's the occasion?</h4><br>
@@ -48,11 +47,21 @@
         <!-- Who is the card from? -->
         <h4>Sign your card</h4>
         <br>
-        <input type="text" id="senderText">
+        <input type="text" id="senderText" placeholder=" Your Name">
         <br><br>
         <!-- Make your card by clicking on this button -->
         <button id ="add-joke">Add a joke</button><br>
         <button id="createBtn" onclick="">Make your card</button>
     </form>
+    </div>
+    <div  class="col-12 col-md-8 ">
+      
+
+    </div>
+</main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
+    <script src="./assests/js/script.js"></script>
+
     </body>
 </html>
