@@ -1,10 +1,16 @@
 var makeYourCardEl =document.getElementById("createBtn");
-var generateCard =function(){
+var cardContainerEl = document.getElementById("card-container");
+var receiverTextEl = document.getElementById("receiver-text");
+var senderTextEl = document.getElementById("senderText");
+var addImageBtn = document.querySelector("#add-image");
+console.log(addImageBtn)
+var createBtnHandler =function(){
     event.preventDefault();
-    console.log("here")
 getJoke();
-getImage();
+//getImage();
+createCard();
 }
+
 var getJoke = function(category){
     var apiUrl = "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Dark,Pun,Spooky,Christmas";
 
@@ -13,28 +19,44 @@ var getJoke = function(category){
     .then(function(response){
     if(response.ok){
         response.json().then(function(data){
-            console.log(data);
-})
-
+            console.log(data.setup);
+            console.log(data.delivery);
+        })
+    } else {
+        alert("Poops, something went catAssTrophic" );
     }
 })
 }
-
-
-var getImage = function(category){
-    var apiUrl = "https://dog.ceo/api/breeds/image/random";
-
+var addImageHandler = function(event){
+    event.preventDefault();
+    var category = event.target.getAttribute("data-category")
+    console.log(category);
+    var apiUrl ="https://some-random-api.ml/img/" + category
+    console.log (apiUrl)
     //make a request to the url
-    fetch(apiUrl)
-    .then(function(response){
+    fetch(apiUrl).then(function(response){
     if(response.ok){
         response.json().then(function(data){
-            console.log(data);
-})
-
+            createCard(data.link);
+        })
+    } else {
+        alert("Poops, something went catAssTrophic");
     }
 })
 }
 
+var createCard = function(){
+var recipientName = document.createElement("p")
+recipientName.className = "h2";
+recipientName.textContent= "Dear " + receiverTextEl.value.trim();
+cardContainerEl.append(recipientName);
+var senderName = document.createElement("p")
+senderName.className ="h3";
+senderName.textContent = "From " + senderTextEl.value.trim();
+cardContainerEl.append(senderName);
 
-makeYourCardEl.addEventListener("click", generateCard)
+}
+
+
+makeYourCardEl.addEventListener("click", createBtnHandler)
+addImageBtn.addEventListener("click", addImageHandler);

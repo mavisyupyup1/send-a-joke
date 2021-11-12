@@ -9,7 +9,7 @@
     <link rel="style" href="./assets/css/style.css">
     <title>Send A Joke</title>
 </head>
-<body class="flex-column min-100-vh container-fluid">
+<body class="flex-column container-fluid">
   <main class="row justify-space-between" > 
     <div class="col-12 col-md-4">
     <h1>Send a Joke!</h1>
@@ -35,27 +35,26 @@
         <input type="color" id="font-color"><br>
         <br>
         <!-- Add a picture -->
+        <div id="add-image">
         <h4>Add a picture</h4><br>
-        <select name="picture" id="picture">
-            <option value="kitten">Kitten</option>
-            <option value="puppy">Puppy</option>
-            <option value="clown">Clown</option>
-            <option value="surprise">Surprise me</option>
-        </select>
-        <button id="add-picture">Add picture</button>
-        <br><br>
+            <button class = "add-image" data-category = "cat" value="kitten">Kitten</button>
+            <button class = "add-image" data-category = "dog" value="puppy">Puppy</button>
+            <button class = "add-image" data-category = "koala" value="koala">Koala</button>
+            <button class = "add-image" data-category = "panda" value="surprise">Surprise me</button>
+      
+        <br><br></div>
+        
         <!-- Who is the card from? -->
         <h4>Sign your card</h4>
         <br>
         <input type="text" id="senderText" placeholder=" Your Name">
         <br><br>
         <!-- Make your card by clicking on this button -->
-        <button id ="add-joke">Add a joke</button><br>
+     
         <button id="createBtn" onclick="">Make your card</button>
     </form>
     </div>
-    <div  class="col-12 col-md-8 ">
-      
+    <div class="col-12 col-md-8 " id="card-container">
 
     </div>
 </main>
