@@ -20,12 +20,15 @@
         <input type="text" id="receiver-text" placeholder=" Recipient's Name">
         <br><br>
         <!-- Pick a message with the radio buttons below -->
+        <div id = "occasion">
         <h4>What's the occasion?</h4><br>
-        <input type="radio" name="cardType" id="type1" value="birthday" checked> Happy Birthday!<br>
+        <input type="radio" name="cardType" id="type0" value="sayhi" checked> Just Say Hi!<br>
+        <input type="radio" name="cardType" id="type1" value="birthday"> Happy Birthday!<br>
         <input type="radio" name="cardType" id="type2" value="holidays"> Happy Holidays!<br>
         <input type="radio" name="cardType" id="type3" value="missing-you"> Missing you!<br>
         <input type="radio" name="cardType" id="type4" value="congratulations"> Congratulations!<br>
         <br>
+    </div>
         <!-- Add colors -->
         <h4>Select the background and font colors</h4><br>
         <span>Background color</span><br>
@@ -43,7 +46,7 @@
             <button class = "add-image" data-category = "panda" value="surprise">Surprise me</button>
       
         <br><br></div>
-        
+
         <!-- Who is the card from? -->
         <h4>Sign your card</h4>
         <br>
@@ -51,7 +54,7 @@
         <br><br>
         <!-- Make your card by clicking on this button -->
      
-        <button id="createBtn" onclick="">Make your card</button>
+        <button id="createBtn" type ="submit">Make your card</button>
     </form>
     </div>
     <div class="col-12 col-md-8 " id="card-container">
