@@ -3,11 +3,15 @@ var cardContainerEl = document.getElementById("card-container");
 var receiverTextEl = document.getElementById("receiver-text");
 var senderTextEl = document.getElementById("senderText");
 var addImageBtn = document.querySelector("#add-image");
+var addJokeBtn = document.querySelector(".cardType");
+console.log(addJokeBtn)
 var imgUrl = "";
 var jokeSetup ="";
 var jokeDelivery ="";
 
-var getJoke = function(){
+var getJoke = function(event){
+    event.preventDefault();
+    console.log("here")
     var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Spooky,Christmas";
 console.log(apiJokeUrl)
     //make a request to the url
@@ -58,7 +62,6 @@ if(!category){
 
 var generateCard = function(event){
     event.preventDefault();
-    getJoke();
 console.log("here")
 cardContainerEl.textContent ="";
 var recipientName = document.createElement("p")
@@ -76,9 +79,9 @@ var senderName = document.createElement("p")
 senderName.className ="h3";
 senderName.textContent = "From " + senderTextEl.value.trim();
 cardContainerEl.append(senderName);
-
 }
 
 
 makeYourCardEl.addEventListener("click", generateCard)
 addImageBtn.addEventListener("click", addImageHandler)
+addJokeBtn.addEventListener("click",getJoke)
