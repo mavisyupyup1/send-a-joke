@@ -3,7 +3,7 @@ var cardContainerEl = document.getElementById("card-container");
 var receiverTextEl = document.getElementById("receiver-text");
 var senderTextEl = document.getElementById("senderText");
 var addImageBtn = document.querySelector("#add-image");
-var addJokeBtn = document.querySelector(".cardType");
+var addJokeBtn = document.getElementById("occasion");
 console.log(addJokeBtn)
 var imgUrl = "";
 var jokeSetup ="";
@@ -12,7 +12,7 @@ var jokeDelivery ="";
 var getJoke = function(event){
     event.preventDefault();
     console.log("here")
-    var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Spooky,Christmas";
+    var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Spooky,Christmas";
 console.log(apiJokeUrl)
     //make a request to the url
     fetch(apiJokeUrl)

@@ -27,3 +27,6 @@ THEN I get a good laugh and I can save it and send it to my friend
 
 ## Wire framing
 ![send-a-joke-wire-framing](assests/images/send-a-joke-wire-framing.png)
+
+## MVP Demo
+![send-a-joke-mvp-demo](assests/images/send-a-joke.gif)
