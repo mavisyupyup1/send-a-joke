@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assests/images/grumpy-cat.png">
     <link href="https://fonts.googleapis.com/css?family=Lato|Petit Formal Script" rel="stylesheet">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assests/css/style.css">  
+ <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ <link rel="stylesheet" href="./assests/css/style.css">  
       <title>Send A Joke</title>
 </head>
 <body class="flex-column container-fluid">
   <main class="row justify-space-between" > 
-    <div class="col-12 col-md-4">
+    <div class="col s12 m4">
     <h1>Send a Joke!</h1>
     <form id="creator">
         <!-- Who is the card for? -->
@@ -23,14 +25,14 @@
         <div id = "occasion">
         <h4>What's the occasion?</h4><br>
 
-        <button class = "cardType" data-type="missing-you" value="missing-you">Missing you!</button>
+        <button class = "cardType waves-effect waves-light btn" data-type="missing-you" value="missing-you">Missing you! &#128156</button>
         
-        <button class = "cardType" data-type="happy-birthday" value="happy-birthday">Happy Birthday!</button>
+        <button class = "cardType waves-effect waves-light btn" data-type="happy-birthday" value="happy-birthday">Happy Birthday! &#127874	</button>
 
 
-        <button class = "cardType" data-type="missing-you" value="happy holidays">Happy Holidays!</button>
+        <button class = "cardType waves-effect waves-light btn" data-type="missing-you" value="happy holidays">Happy Holidays! &#127876</button>
 
-        <button class = "cardType" data-type="congratulations" value="congratulations">Congratulations!</button>
+        <button class = "cardType waves-effect waves-light btn" data-type="congratulations" value="congratulations">Congratulations! &#127881</button>
     
         <br>
     </div>
@@ -45,10 +47,10 @@
         <!-- Add a picture -->
         <div id="add-image">
         <h4>Add a picture</h4><br>
-            <button class = "add-image" data-category = "cat" value="kitten">Kitten</button>
-            <button class = "add-image" data-category = "dog" value="puppy">Puppy</button>
-            <button class = "add-image" data-category = "koala" value="koala">Koala</button>
-            <button class = "add-image" data-category = "panda" value="surprise">Surprise me</button>
+            <button class = "add-image  waves-effect waves-light btn" data-category = "cat" value="kitten">Kitten 🐾</button>
+            <button class = "add-image  waves-effect waves-light btn" data-category = "dog" value="puppy">Puppy &#128054</button>
+            <button class = "add-image  waves-effect waves-light btn" data-category = "koala" value="koala">Koala 🐨</button>
+            <button class = "add-image  waves-effect waves-light btn" data-category = "panda" value="surprise">Surprise me &#129412</button>
       
         <br><br></div>
 
@@ -59,17 +61,22 @@
         <br><br>
         <!-- Make your card by clicking on this button -->
      
-        <button id="createBtn" type ="submit">Make your card</button>
+        <button id="createBtn" class="btn waves-effect waves-light red lighten-2"type ="submit"> Make your card</button>
     </form>
     </div>
     <div class="loader disappear">
         <img src="./assests/images/Koala-bear.gif" alt="">
     </div>
-    <div class="col-12 col-md-8 " id="card-container">
+    <div class="col s12 m8 " id="card-container">
+        <div class="loader disappear">
+            <img src="./assests/images/Koala-bear.gif" alt="">
+        </div> 
 
     </div>
 </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
     <script src="./assests/js/script.js"></script>
 
