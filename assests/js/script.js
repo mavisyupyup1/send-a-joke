@@ -97,9 +97,13 @@ $(document).on("load",".card-img",function(){
 saveBtn.addEventListener('click', function(event) {
     event.preventDefault();
   
-    html2canvas(cardContainerEl).then(function(canvas){
+    html2canvas(cardContainerEl, {
+        allowTaint: true,
+        logging: true,
+        useCORS:true
+    }).then(function(canvas){
         let myImage = canvas.toDataURL("image/png");
-        downloadURI("data:" + myImage, "HappyHolidays.png");
+        downloadURI("data:" + myImage, "Sendajoke.png");
     });
   });
 
