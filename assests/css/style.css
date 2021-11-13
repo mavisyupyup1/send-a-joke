@@ -1,8 +1,7 @@
-
-body{
-    font-family: "Open Sans", sans-serif
+h2, h3 {
+    color: darkred;
+    font-family: 'Petit Formal Script', cursive;
   }
-
 .loader{
     position: fixed;
     background: lightgrey;
