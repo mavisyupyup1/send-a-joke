@@ -12,18 +12,19 @@
       <title>Send A Joke</title>
 </head>
 <body class="flex-column container-fluid">
+    <header class="col s12 m12 l12">  <h2>Send a Joke!</h2></header>
   <main class="row justify-space-between" > 
     <div class="col s12 m4">
-    <h1>Send a Joke!</h1>
+  
     <form id="creator">
         <!-- Who is the card for? -->
-        <h4>Who is the lucky one?</h4>
+        <h5>Who is the lucky one?</h5>
         <br>
         <input type="text" id="receiver-text" placeholder=" Recipient's Name">
         <br><br>
         <!-- Pick a message with the radio buttons below -->
         <div id = "occasion">
-        <h4>What's the occasion?</h4><br>
+        <h5>What's the occasion?</h5><br>
 
         <button class = "cardType waves-effect waves-light btn" data-type="missing-you" value="missing-you">Missing you! &#128156</button>
         
@@ -37,7 +38,7 @@
         <br>
     </div>
         <!-- Add colors -->
-        <h4>Select the background and font colors</h4><br>
+        <h5>Select the background and font colors</h5><br>
         <span>Background color</span><br>
         <input type="color" id="background-color"><br>
         <br>
@@ -46,7 +47,7 @@
         <br>
         <!-- Add a picture -->
         <div id="add-image">
-        <h4>Add a picture</h4><br>
+        <h5>Add a picture</h5><br>
             <button class = "add-image  waves-effect waves-light btn" data-category = "cat" value="kitten">Kitten 🐾</button>
             <button class = "add-image  waves-effect waves-light btn" data-category = "dog" value="puppy">Puppy &#128054</button>
             <button class = "add-image  waves-effect waves-light btn" data-category = "koala" value="koala">Koala 🐨</button>
@@ -54,7 +55,7 @@
         <br><br></div>
 
         <!-- Who is the card from? -->
-        <h4>Sign your card</h4>
+        <h5>Sign your card</h5>
         <br>
         <input type="text" id="senderText" placeholder=" Your Name">
         <br><br>
