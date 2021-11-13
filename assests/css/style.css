@@ -1,3 +1,22 @@
+
 body{
     font-family: "Open Sans", sans-serif
   }
+
+.loader{
+    position: fixed;
+    background: lightgrey;
+
+    display: flex;
+    justify-content: center;
+    align-items: centerc;
+}
+.disappear{
+    animation: vanish 1s forwards;
+}
+@keyframes vanish {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

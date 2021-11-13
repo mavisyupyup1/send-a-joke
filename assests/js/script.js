@@ -8,6 +8,7 @@ console.log(addJokeBtn)
 var imgUrl = "";
 var jokeSetup ="";
 var jokeDelivery ="";
+var loader = document.querySelector(".loader")
 
 var getJoke = function(event){
     event.preventDefault();
@@ -69,7 +70,10 @@ recipientName.className = "h2";
 recipientName.textContent= "Dear " + receiverTextEl.value.trim()
 cardContainerEl.append(recipientName);
 var addImg = `<img src="${imgUrl}"/>`;
-console.log(addImg);
+var imgContainer = document.createElement("p");
+imgContainer.className="card-img";
+imgContainer.append(addImg);
+console.log(imgContainer);
 var jokeContent = document.createElement("p");
 jokeContent.className = "p";
 jokeContent.innerHTML = jokeSetup + '<br>' + jokeDelivery +'<br>'+ "<p>" + addImg + "<p>" ;
@@ -85,3 +89,6 @@ cardContainerEl.append(senderName);
 makeYourCardEl.addEventListener("click", generateCard)
 addImageBtn.addEventListener("click", addImageHandler)
 addJokeBtn.addEventListener("click",getJoke)
+$(document).on("load",".card-img",function(){
+    $(loader).classList.add(".disappear")
+})
