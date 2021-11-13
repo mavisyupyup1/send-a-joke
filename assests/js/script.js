@@ -4,6 +4,7 @@ var receiverTextEl = document.getElementById("receiver-text");
 var senderTextEl = document.getElementById("senderText");
 var addImageBtn = document.querySelector("#add-image");
 var addJokeBtn = document.getElementById("occasion");
+var saveBtn = document.querySelector("#save-button");
 console.log(addJokeBtn)
 var imgUrl = "";
 var jokeSetup ="";
@@ -92,3 +93,19 @@ addJokeBtn.addEventListener("click",getJoke)
 $(document).on("load",".card-img",function(){
     $(loader).classList.add(".disappear")
 })
+
+saveBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+  
+    html2canvas(cardContainerEl).then(function(canvas){
+        let myImage = canvas.toDataURL("image/png");
+        downloadURI("data:" + myImage, "HappyHolidays.png");
+    });
+  });
+
+  function downloadURI(uri, name) {
+    let link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    link.click();
+  }
