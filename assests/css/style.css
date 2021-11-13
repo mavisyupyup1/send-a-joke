@@ -13,6 +13,13 @@ h2, h3 {
 .disappear{
     animation: vanish 1s forwards;
 }
+.card-img {
+    height: 400px;
+    width: 100%;
+    margin: 0;
+    float: right;
+    object-fit: cover;
+  }
 @keyframes vanish {
     100% {
         opacity: 0;
