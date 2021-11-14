@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assests/images/grumpy-cat.png">
-    <link href="css/prism.css" rel="stylesheet">
-    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="https://fonts.googleapis.com/css?family=Lato|Petit Formal Script" rel="stylesheet">    
+  <link href="https://fonts.googleapis.com/css?family=Lato|Petit Formal Script" rel="stylesheet">    
  <!-- Compiled and minified CSS -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <link rel="stylesheet" href="./assests/css/style.css">  
@@ -37,9 +35,28 @@
         <button class = "cardType waves-effect waves-light btn" data-type="missing-you" value="happy holidays">Happy Holidays! &#127876</button>
 
         <button class = "cardType waves-effect waves-light btn" data-type="congratulations" value="congratulations">Congratulations! &#127881</button>
-    
-        <br>
     </div>
+        <br>
+        <div>
+        <h5 class="light">Wanna a different Joke?</h5><br>
+
+        <button id="get-joke-btn" class="btn waves-effect waves-light orange lighten-2 pulse"type ="submit">Get a different joke</button>
+    </div>
+         <!-- Who is the card from? -->
+         <div>
+            <h5 class="light">Sign your card</h5>
+            <br>
+            <input type="text" id="senderText" placeholder=" Your Name">
+            <br><br>
+            </div>
+                <!-- Add a picture -->
+                <div id="add-image">
+                    <h5 class="light">Add a picture</h5><br>
+                          <button class = "add-image  waves-effect waves-light btn" data-category = "cat" value="kitten">Kitten 🐾</button>
+                        <button class = "add-image  waves-effect waves-light btn" data-category = "dog" value="puppy">Puppy &#128054</button>
+                        <button class = "add-image  waves-effect waves-light btn" data-category = "koala" value="koala">Koala 🐨</button>
+                        <button class = "add-image  waves-effect waves-light btn" data-category = "panda" value="surprise">Surprise me &#129412</button>
+                    <br><br></div>
         <!-- Add colors -->
         <h5 class="light">Select the background and font colors</h5><br>
         <span>Background color</span><br>
@@ -48,23 +65,10 @@
         <span>Font color</span><br>
         <input type="color" id="font-color"><br>
         <br>
-        <!-- Add a picture -->
-        <div id="add-image">
-        <h5 class="light">Add a picture</h5><br>
-              <button class = "add-image  waves-effect waves-light btn" data-category = "cat" value="kitten">Kitten 🐾</button>
-            <button class = "add-image  waves-effect waves-light btn" data-category = "dog" value="puppy">Puppy &#128054</button>
-            <button class = "add-image  waves-effect waves-light btn" data-category = "koala" value="koala">Koala 🐨</button>
-            <button class = "add-image  waves-effect waves-light btn" data-category = "panda" value="surprise">Surprise me &#129412</button>
-        <br><br></div>
 
-        <!-- Who is the card from? -->
-        <h5 class="light">Sign your card</h5>
-        <br>
-        <input type="text" id="senderText" placeholder=" Your Name">
-        <br><br>
+
+   
         <!-- Make your card by clicking on this button -->
-     
-        <button id="createBtn" class="btn waves-effect waves-light red lighten-2 pulse"type ="submit"> Make your card</button>
     </form>
     </div>
    
@@ -73,17 +77,22 @@
   <div class="row ">
     <div class="col s12 m8 offset-m2" >
       <div class="card">
-        <div class="card-image">
-          <img src="./assests/images/grumpy-cat.png" width="50%">
-        </div>
         <div class="card-content">
-        <h5 class="script materialize-red-text text-lighten-2">Dear </h5>
-          <p>I hope you get a good laugh. Thinking about you. <br>
-              What you call a pig that does Karate?<br>
-              A pork chop!
-          </p>
-          <h6 class="script materialize-red-text text-lighten-2">From: </h6>
+            <h5 class="script materialize-red-text text-lighten-2">Dear <span id="receiver-name"></span> , </h5>
+            <div id="card-text"> 
+           I hope you get a good laugh. <p id="occasion-text">Thinking about you. </p>
+           <div id="joke-text">
+                  <p class="joke-setup-text">What you call a pig that does Karate?</p>
+                  <p class="joke-delivery-text">A pork chop!</p>
+              </p>
+            </div>
+            </div>
+              <h6 class="script materialize-red-text text-lighten-2">From: <span id="sender-name"></span></h6>
+            </div>
+        <div class="card-image">
+          <img id="placeholder-img" src="./assests/images/grumpy-cat.png" width="50%">
         </div>
+       
         <div class="card-action">
             <button id="save-button" class="btn waves-effect waves-light red lighten-2 pulse">Save Card</button>   
           </div>

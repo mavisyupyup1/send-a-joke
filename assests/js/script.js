@@ -4,6 +4,7 @@ var receiverTextEl = document.getElementById("receiver-text");
 var senderTextEl = document.getElementById("senderText");
 var addImageBtn = document.querySelector("#add-image");
 var addJokeBtn = document.getElementById("occasion");
+console.log(addJokeBtn)
 var occasionTextEl = document.getElementById("occasion-text")
 var saveBtn = document.querySelector("#save-button");
 var receiverNameEl =document.getElementById("receiver-name");
@@ -96,8 +97,6 @@ var imgContainer = document.createElement("p");
 imgContainer.append(addImg);
 cardImageEl.parentNode.replaceChild(imgContainer,cardImageEl)
     }
-
-
 
 
 getJokeBtn.addEventListener("click", getJoke)
