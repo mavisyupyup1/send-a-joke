@@ -1,11 +1,12 @@
-h2, h3 {
-    color: darkred;
+*{
+    body
+}
+.script {
     font-family: 'Petit Formal Script', cursive;
-  }
+  } */
 .loader{
     position: fixed;
     background: lightgrey;
-
     display: flex;
     justify-content: center;
     align-items: centerc;
@@ -29,10 +30,8 @@ h2, h3 {
   }
   .frame
   {
-    position: absolute;
-    top: 60px;
-    left: 80px;
-    width: 30%;
+    position: relative;
+  
    
   }
 @keyframes vanish {
@@ -42,7 +41,8 @@ h2, h3 {
     }
 }
 #save-button{
-    position:absolute;
-    right: 300px;
-    bottom:200px;
+    position:relative;
+}
+.extra-large{
+    height:600px
 }

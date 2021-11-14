@@ -5,28 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assests/images/grumpy-cat.png">
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="https://fonts.googleapis.com/css?family=Lato|Petit Formal Script" rel="stylesheet">    
  <!-- Compiled and minified CSS -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <link rel="stylesheet" href="./assests/css/style.css">  
       <title>Send A Joke</title>
 </head>
-<body class="flex-column container-fluid">
-    <header class="col s12 m12 l12">  <h2>Send a Joke!</h2></header>
+<body class="flex-column container-fluid ">
+    <header class="col s12 m12 l12 center-align section scrollspy">  <h2 class="header materialize-red-text text-lighten-2 ">Send a Joke!</h2></header>
+    <div class="divider"></div>
   <main class="row justify-space-between" > 
-    <div class="col s12 m4">
+    <div class="col s12 m4 container">
   
     <form id="creator">
         <!-- Who is the card for? -->
-        <h5>Who is the lucky one?</h5>
+        <h5 class="light">Who is the lucky one?</h5>
         <br>
         <input type="text" id="receiver-text" placeholder=" Recipient's Name">
         <br><br>
         <!-- Pick a message with the radio buttons below -->
         <div id = "occasion">
-        <h5>What's the occasion?</h5><br>
+        <h5 class="light">What's the occasion?</h5><br>
 
-        <button class = "cardType waves-effect waves-light btn" data-type="missing-you" value="missing-you">Missing you! &#128156</button>
+        <button class = "cardType waves-effect waves-light btn " data-type="missing-you" value="missing-you">Missing you! &#128156</button>
         
         <button class = "cardType waves-effect waves-light btn" data-type="happy-birthday" value="happy-birthday">Happy Birthday! &#127874	</button>
 
@@ -38,7 +41,7 @@
         <br>
     </div>
         <!-- Add colors -->
-        <h5>Select the background and font colors</h5><br>
+        <h5 class="light">Select the background and font colors</h5><br>
         <span>Background color</span><br>
         <input type="color" id="background-color"><br>
         <br>
@@ -47,7 +50,7 @@
         <br>
         <!-- Add a picture -->
         <div id="add-image">
-        <h5>Add a picture</h5><br>
+        <h5 class="light">Add a picture</h5><br>
               <button class = "add-image  waves-effect waves-light btn" data-category = "cat" value="kitten">Kitten 🐾</button>
             <button class = "add-image  waves-effect waves-light btn" data-category = "dog" value="puppy">Puppy &#128054</button>
             <button class = "add-image  waves-effect waves-light btn" data-category = "koala" value="koala">Koala 🐨</button>
@@ -55,22 +58,41 @@
         <br><br></div>
 
         <!-- Who is the card from? -->
-        <h5>Sign your card</h5>
+        <h5 class="light">Sign your card</h5>
         <br>
         <input type="text" id="senderText" placeholder=" Your Name">
         <br><br>
         <!-- Make your card by clicking on this button -->
      
-        <button id="createBtn" class="btn waves-effect waves-light red lighten-2"type ="submit"> Make your card</button>
+        <button id="createBtn" class="btn waves-effect waves-light red lighten-2 pulse"type ="submit"> Make your card</button>
     </form>
     </div>
    
-    <div class="col s12 m8 " id="card-container">
-        <div class="loader disappear">
-            <img src="./assests/images/Koala-bear.gif" alt="">
-        </div> 
+    <div class="col s12 m8  justify-space-between container" id="card-container">
+        <div class="loader disappear card-panel"> </div> 
+  <div class="row ">
+    <div class="col s12 m8 offset-m2" >
+      <div class="card">
+        <div class="card-image">
+          <img src="./assests/images/grumpy-cat.png" width="50%">
+        </div>
+        <div class="card-content">
+        <h5 class="script materialize-red-text text-lighten-2">Dear </h5>
+          <p>I hope you get a good laugh. Thinking about you. <br>
+              What you call a pig that does Karate?<br>
+              A pork chop!
+          </p>
+          <h6 class="script materialize-red-text text-lighten-2">From: </h6>
+        </div>
+        <div class="card-action">
+            <button id="save-button" class="btn waves-effect waves-light red lighten-2 pulse">Save Card</button>   
+          </div>
+      </div>
     </div>
-    <button id="save-button">Save Card</button>
+  </div>
+          
+    </div>
+    
 </main>
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

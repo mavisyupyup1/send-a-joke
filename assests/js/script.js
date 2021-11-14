@@ -102,12 +102,6 @@ cardContainerEl.append(senderName);
 
 makeYourCardEl.addEventListener("click", generateCard)
 addImageBtn.addEventListener("click", addImageHandler)
-<<<<<<< HEAD
-addJokeBtn.addEventListener("click",getJoke);
-// $(document).on("load",".card-img",function(){
-//     $(loader).classList.add(".disappear")
-// })
-=======
 addJokeBtn.addEventListener("click",getJoke)
 $(document).on("load",".card-img",function(){
     $(loader).classList.add(".disappear")
@@ -132,4 +126,3 @@ saveBtn.addEventListener('click', function(event) {
     link.href = uri;
     link.click();
   }
->>>>>>> f01656128bcb5c7ec160d3b439e869aee77fc6d4
