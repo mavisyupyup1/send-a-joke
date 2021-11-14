@@ -20,6 +20,21 @@ h2, h3 {
     float: right;
     object-fit: cover;
   }
+
+  .picture
+  {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .frame
+  {
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    width: 30%;
+   
+  }
 @keyframes vanish {
     100% {
         opacity: 0;
