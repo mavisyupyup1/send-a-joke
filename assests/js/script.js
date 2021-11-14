@@ -4,6 +4,7 @@ var receiverTextEl = document.getElementById("receiver-text");
 var senderTextEl = document.getElementById("senderText");
 var addImageBtn = document.querySelector("#add-image");
 var addJokeBtn = document.getElementById("occasion");
+var saveBtn = document.querySelector("#save-button");
 console.log(addJokeBtn)
 var imgUrl = "";
 var jokeSetup ="";
@@ -101,7 +102,34 @@ cardContainerEl.append(senderName);
 
 makeYourCardEl.addEventListener("click", generateCard)
 addImageBtn.addEventListener("click", addImageHandler)
+<<<<<<< HEAD
 addJokeBtn.addEventListener("click",getJoke);
 // $(document).on("load",".card-img",function(){
 //     $(loader).classList.add(".disappear")
 // })
+=======
+addJokeBtn.addEventListener("click",getJoke)
+$(document).on("load",".card-img",function(){
+    $(loader).classList.add(".disappear")
+})
+
+saveBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+  
+    html2canvas(cardContainerEl, {
+        allowTaint: true,
+        logging: true,
+        useCORS:true
+    }).then(function(canvas){
+        let myImage = canvas.toDataURL("image/png");
+        downloadURI("data:" + myImage, "Sendajoke.png");
+    });
+  });
+
+  function downloadURI(uri, name) {
+    let link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    link.click();
+  }
+>>>>>>> f01656128bcb5c7ec160d3b439e869aee77fc6d4
