@@ -1,11 +1,18 @@
-var makeYourCardEl =document.getElementById("createBtn");
+var getJokeBtn =document.getElementById("get-joke-btn");
 var cardContainerEl = document.getElementById("card-container");
 var receiverTextEl = document.getElementById("receiver-text");
 var senderTextEl = document.getElementById("senderText");
 var addImageBtn = document.querySelector("#add-image");
 var addJokeBtn = document.getElementById("occasion");
+var occasionTextEl = document.getElementById("occasion-text")
 var saveBtn = document.querySelector("#save-button");
-console.log(addJokeBtn)
+var receiverNameEl =document.getElementById("receiver-name");
+var senderNameEl =document.getElementById("sender-name");
+var jokeSetupEl = document.querySelector(".joke-setup-text");
+var jokeDeliveryEl = document.querySelector(".joke-delivery-text");
+var jokeTextEl = document.getElementById("joke-text")
+var cardImageEl =document.getElementById("placeholder-img")
+console.log(cardImageEl)
 var imgUrl = "";
 var jokeSetup ="";
 var jokeDelivery ="";
@@ -13,7 +20,6 @@ var loader = document.querySelector(".loader")
 
 var getJoke = function(event){
     event.preventDefault();
-    console.log("here")
     var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Christmas";
 console.log(apiJokeUrl)
     //make a request to the url
@@ -26,15 +32,22 @@ console.log(apiJokeUrl)
             if(data.type === "twopart"){
                 console.log("twopart")
             jokeSetup = data.setup;
-            console.log(data.setup)
             jokeDelivery = data.delivery;
-            console.log(jokeDelivery)
              } else {
                  console.log("single")
             jokeSetup = data.joke 
             jokeDelivery = '';
-        console.log(jokeSetup)}
+             }
+            jokeTextEl.textContent=""
+            var jokeSetupText = document.createElement("p")
+            jokeSetupText.textContent = jokeSetup;
+            console.log(jokeSetupText)
+            jokeTextEl.append(jokeSetupText);
+            var jokeDeliveryText = document.createElement("p")
+            jokeDeliveryText.textContent = jokeDelivery;
+            jokeTextEl.append(jokeDeliveryText)
         })
+   
     } else {
         alert("Poops, something went catAssTrophic" );
     }
@@ -45,66 +58,62 @@ var addImageHandler = function(event){
     var category = event.target.getAttribute("data-category");
     if (category === "koala" || category === "panda") {
     apiUrl ="https://some-random-api.ml/img/" + category;
-    console.log(apiUrl)
     //make a request to the url
     fetch(apiUrl).then(function(response){
         response.json().then(function(data){
             console.log(data.link);
-            imgUrl = data.link;})});}
-
-if(category ==="dog"){
+            imgUrl = data.link;})});} if(category ==="dog"){
         apiUrl = "https://dog.ceo/api/breeds/image/random"
-        console.log(apiUrl)
         fetch(apiUrl)
         .then(function(response){
             response.json().then(function(data){
                 imgUrl =data.message
-            console.log(imgUrl)})});
-}if(category  === "cat"){
+            console.log(imgUrl)})}); }if(category  === "cat"){
         apiUrl ="https://api.thecatapi.com/v1/images/search" 
-        console.log(apiUrl)
         fetch(apiUrl)
         .then(function(response){
             response.json().then(function(data){
-              console.log(data[0].url)
               imgUrl = data[0].url
-            console.log(imgUrl)})});
-    // else {
-    //     alert("Poops, something went catAssTrophic");
-    // }
-}
-}
+            console.log(imgUrl)})});}
+     else {
+         alert("Poops, something went catAssTrophic");
+    };
+writeImg()}
 
-var generateCard = function(event){
-    event.preventDefault();
+    var writeImg = function(event){
+        event.preventDefault();
 
-cardContainerEl.textContent ="";
-var recipientName = document.createElement("p")
-recipientName.className = "h2";
-recipientName.textContent= "Dear " + receiverTextEl.value.trim()
-cardContainerEl.append(recipientName);
-var addImg = `<img src="${imgUrl}"/>`;
+    console.log(imgUrl)
+
+    var addImg = `<img src="${imgUrl}"/>`;
 var imgContainer = document.createElement("p");
 imgContainer.className="card-img";
 imgContainer.append(addImg);
 console.log(imgContainer);
-var jokeContent = document.createElement("p");
-jokeContent.className = "p";
-jokeContent.innerHTML = jokeSetup + '<br>' + jokeDelivery +'<br>'+ "<p>" + addImg + "<p>" ;
-cardContainerEl.append(jokeContent);
-console.log(jokeSetup+ jokeDelivery);
-var senderName = document.createElement("p")
-senderName.className ="h3";
-senderName.textContent = "From " + senderTextEl.value.trim();
-cardContainerEl.append(senderName);
-}
+var addImg = `<img src="${imgUrl}"/>`;
+
+var imgContainer = document.createElement("p");
+imgContainer.append(addImg);
+cardImageEl.parentNode.replaceChild(imgContainer,cardImageEl)
+    }
 
 
-makeYourCardEl.addEventListener("click", generateCard)
+
+
+getJokeBtn.addEventListener("click", getJoke)
 addImageBtn.addEventListener("click", addImageHandler)
 addJokeBtn.addEventListener("click",getJoke)
 $(document).on("load",".card-img",function(){
     $(loader).classList.add(".disappear")
+})
+receiverTextEl.addEventListener("keyup",function(event){
+    receiverNameEl.innerText = event.target.value
+})
+senderTextEl.addEventListener("keyup",function(event){
+    senderNameEl.innerText = event.target.value
+})
+addJokeBtn.addEventListener("click", function(event){
+ occasionTextEl.innerText = event.target.textContent
 })
 
 saveBtn.addEventListener('click', function(event) {
