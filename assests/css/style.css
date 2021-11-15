@@ -1,11 +1,12 @@
-h2, h3 {
-    color: darkred;
+*{
+    body
+}
+.script {
     font-family: 'Petit Formal Script', cursive;
-  }
+  } */
 .loader{
     position: fixed;
     background: lightgrey;
-
     display: flex;
     justify-content: center;
     align-items: centerc;
@@ -13,9 +14,35 @@ h2, h3 {
 .disappear{
     animation: vanish 1s forwards;
 }
+.card-img {
+    height: 400px;
+    width: 100%;
+    margin: 0;
+    float: right;
+    object-fit: cover;
+  }
+
+  .picture
+  {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .frame
+  {
+    position: relative;
+  
+   
+  }
 @keyframes vanish {
     100% {
         opacity: 0;
         visibility: hidden;
     }
+}
+#save-button{
+    position:relative;
+}
+.extra-large{
+    height:600px
 }
