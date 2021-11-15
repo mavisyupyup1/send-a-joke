@@ -21,7 +21,8 @@ var imgUrl = "";
 var jokeSetup ="";
 var jokeDelivery ="";
 var loader = document.querySelector(".loader")
-
+console.log(jokeHistory)
+var jokeHistoryEl =document.getElementById("joke-history")
 var getJoke = function(event){
     event.preventDefault();
     if(randomNumber(1,2) === 1){
@@ -48,21 +49,38 @@ var getJoke = function(event){
                  jokeSetup = data.value.joke
                  jokeDelivery = '';
              }
-             
-            jokeTextEl.textContent=""
-            var jokeSetupText = document.createElement("p")
-            jokeSetupText.textContent = jokeSetup;
-            console.log(jokeSetupText)
-            jokeTextEl.append(jokeSetupText);
-            var jokeDeliveryText = document.createElement("p")
-            jokeDeliveryText.textContent = jokeDelivery;
-            jokeTextEl.append(jokeDeliveryText)
+       writeJoke()
         })
    
     } else {
         alert("Poops, something went catAssTrophic" );
     }
 })
+}
+var writeJoke = function(){
+    jokeTextEl.textContent=""
+    var jokeSetupText = document.createElement("p")
+    jokeSetupText.textContent = jokeSetup;
+    console.log(jokeSetupText)
+    jokeTextEl.append(jokeSetupText);
+    var jokeDeliveryText = document.createElement("p")
+    jokeDeliveryText.textContent = jokeDelivery;
+    jokeTextEl.append(jokeDeliveryText)
+    //create jokeToPush as an object {} rather than an array []
+    var jokeToPush ={};
+    //add properties to object
+    jokeToPush.setup = jokeSetupText;
+    jokeToPush.delivery = jokeDeliveryText;
+    console.log(jokeToPush.setup)
+    console.log(jokeToPush.delivery)
+    jokeHistory[0].setup.push(jokeSetupText.innerText)
+    console.log(jokeHistory[0].setup)
+    var historyJokeBtn = document.createElement("list-group-item")
+    historyJokeBtn.className = "btn waves-effect waves-light blue lighten-2 "
+    console.log(jokeTextEl)
+    historyJokeBtn.textContent = jokeTextEl.innerText
+    jokeHistoryEl.append(historyJokeBtn)
+    localStorage.setItem("joke",JSON.stringify(jokeHistory))
 }
 var addImageHandler = function(event){
    event.preventDefault();
