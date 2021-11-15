@@ -1,3 +1,7 @@
+var randomNumber = function (min,max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min) ;
+    return value;
+};
 var getJokeBtn =document.getElementById("get-joke-btn");
 var cardContainerEl = document.getElementById("card-container");
 var receiverTextEl = document.getElementById("receiver-text");
@@ -13,7 +17,6 @@ var jokeSetupEl = document.querySelector(".joke-setup-text");
 var jokeDeliveryEl = document.querySelector(".joke-delivery-text");
 var jokeTextEl = document.getElementById("joke-text")
 var cardImageEl =document.getElementById("placeholder-img")
-console.log(cardImageEl)
 var imgUrl = "";
 var jokeSetup ="";
 var jokeDelivery ="";
@@ -21,8 +24,11 @@ var loader = document.querySelector(".loader")
 
 var getJoke = function(event){
     event.preventDefault();
-    var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Christmas";
-console.log(apiJokeUrl)
+    if(randomNumber(1,2) === 1){
+    var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Christmas";}
+    else{
+    var apiJokeUrl ="http://api.icndb.com/jokes/random?firstName=John&lastName=Doe"}
+
     //make a request to the url
     fetch(apiJokeUrl)
     .then(function(response){
@@ -34,11 +40,15 @@ console.log(apiJokeUrl)
                 console.log("twopart")
             jokeSetup = data.setup;
             jokeDelivery = data.delivery;
-             } else {
-                 console.log("single")
+             } if(data.type === "signle") {
+        
             jokeSetup = data.joke 
             jokeDelivery = '';
+             } if(data.type === "success"){
+                 jokeSetup = data.value.joke
+                 jokeDelivery = '';
              }
+             
             jokeTextEl.textContent=""
             var jokeSetupText = document.createElement("p")
             jokeSetupText.textContent = jokeSetup;
@@ -57,45 +67,35 @@ console.log(apiJokeUrl)
 var addImageHandler = function(event){
    event.preventDefault();
     var category = event.target.getAttribute("data-category");
-    if (category === "koala" || category === "panda") {
-    apiUrl ="https://some-random-api.ml/img/" + category;
-    //make a request to the url
-    fetch(apiUrl).then(function(response){
-        response.json().then(function(data){
-            console.log(data.link);
-            imgUrl = data.link;})});} if(category ==="dog"){
-        apiUrl = "https://dog.ceo/api/breeds/image/random"
-        fetch(apiUrl)
-        .then(function(response){
-            response.json().then(function(data){
-                imgUrl =data.message
-            console.log(imgUrl)})}); }if(category  === "cat"){
-        apiUrl ="https://api.thecatapi.com/v1/images/search" 
-        fetch(apiUrl)
-        .then(function(response){
-            response.json().then(function(data){
-              imgUrl = data[0].url
-            console.log(imgUrl)})});}
-     else {
-         alert("Poops, something went catAssTrophic");
-    };
+        if (category === "holiday") {
+        imgUrl ="./assests/images/holiday-" + randomNumber(1,14)+".jpg"
+        console.log(imgUrl)
+            } if(category ==="dog"){
+                imgUrl ="./assests/images/dog-" + randomNumber(1,12)+".jpg"
+            console.log(imgUrl)
+        }if(category  === "cat"){
+        
+              imgUrl = "./assests/images/cat-" + randomNumber(1,12)+".jpg"
+            console.log(imgUrl);
+        }if(category === "koala") {
+            imgUrl = "./assests/images/koala-" + randomNumber(1,20)+".jpg"
+        } if(category === "birthday") {
+            imgUrl = "./assests/images/birthday-" + randomNumber(1,14)+".jpg"
+        }
 writeImg()}
 
     var writeImg = function(event){
-        event.preventDefault();
-
     console.log(imgUrl)
+    var placeholderImg=document.getElementById("placeholder-img")
+    console.log(placeholderImg.src)  
+placeholderImg.src =`${imgUrl}`
+console.log(placeholderImg.src)
 
-    var addImg = `<img src="${imgUrl}"/>`;
-var imgContainer = document.createElement("p");
-imgContainer.className="card-img";
-imgContainer.append(addImg);
-console.log(imgContainer);
 var addImg = `<img src="${imgUrl}"/>`;
-
-var imgContainer = document.createElement("p");
-imgContainer.append(addImg);
-cardImageEl.parentNode.replaceChild(imgContainer,cardImageEl)
+console.log(addImg)
+// var imgContainer = document.createElement("p");
+// imgContainer.append(addImg);
+// cardImageEl.parentNode.replaceChild(imgContainer,cardImageEl)
     }
 
 
