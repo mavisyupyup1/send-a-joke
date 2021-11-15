@@ -27,7 +27,7 @@ var getJoke = function(event){
     if(randomNumber(1,2) === 1){
     var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Christmas";}
     else{
-    var apiJokeUrl ="http://api.icndb.com/jokes/random?firstName=John&lastName=Doe"}
+    var apiJokeUrl ="https://api.icndb.com/jokes/random?firstName=John&lastName=Doe"}
 
     //make a request to the url
     fetch(apiJokeUrl)
@@ -40,7 +40,7 @@ var getJoke = function(event){
                 console.log("twopart")
             jokeSetup = data.setup;
             jokeDelivery = data.delivery;
-             } if(data.type === "signle") {
+             } if(data.type === "single") {
         
             jokeSetup = data.joke 
             jokeDelivery = '';
