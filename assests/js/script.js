@@ -27,7 +27,7 @@ var getJoke = function(event){
     if(randomNumber(1,2) === 1){
     var apiJokeUrl = "https://v2.jokeapi.dev/joke/Programming,Christmas";}
     else{
-    var apiJokeUrl ="https://api.icndb.com/jokes/random?firstName=John&lastName=Doe"}
+    var apiJokeUrl ="https://api.icndb.com/jokes/random"}
 
     //make a request to the url
     fetch(apiJokeUrl)
