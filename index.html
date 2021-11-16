@@ -12,53 +12,47 @@
       <title>Send A Joke</title>
 </head>
 <body class="flex-column container-fluid ">
-    <header class="col s12 m12 l12 center-align section scrollspy">  <h2 class="header materialize-red-text text-lighten-2 ">Send a Joke!</h2></header>
-    <div class="divider"></div>
+<header class="col s12 m12 l12 center-align section scrollspy">  
+  <h2 class="header materialize-red-text text-lighten-2 ">Send a Joke!</h2>
+</header>
+  <div class="divider"></div>
   <main class="row justify-space-between" > 
     <div class="col s12 m4 container">
-  
-    <form id="creator">
         <!-- Who is the card for? -->
         <h5 class="light">Who is the lucky one?</h5>
         <br>
         <input type="text" id="receiver-text" placeholder=" Recipient's Name">
-        <br><br>
+       
         <!-- Pick a message with the radio buttons below -->
-        <div id = "occasion">
         <h5 class="light">What's the occasion?</h5><br>
+        <div id ="add-occasion">
+        <button class = "card-type waves-effect waves-light btn " data-type="missing-you" >Missing you! &#128156</button>
+        <button class = "card-type waves-effect waves-light btn" data-type="happy-birthday" >Happy Birthday! &#127874	</button>
+        <button class = "card-type waves-effect waves-light btn" data-type="missing-you" >Happy Holidays! &#127876</button>
+        <button class = "card-type waves-effect waves-light btn" data-type="congratulations" >Congratulations! &#127881</button>
+        </div>
 
-        <button class = "cardType waves-effect waves-light btn " data-type="missing-you" value="missing-you">Missing you! &#128156</button>
-        
-        <button class = "cardType waves-effect waves-light btn" data-type="happy-birthday" value="happy-birthday">Happy Birthday! &#127874	</button>
+      <div>
+      <h5 class="light">Wanna a different Joke?</h5><br>
+      <button id="get-joke-btn" class="btn waves-effect waves-light orange lighten-2 "type ="submit">Get a different joke</button> 
+     </div>
 
-
-        <button class = "cardType waves-effect waves-light btn" data-type="missing-you" value="happy holidays">Happy Holidays! &#127876</button>
-
-        <button class = "cardType waves-effect waves-light btn" data-type="congratulations" value="congratulations">Congratulations! &#127881</button>
-    </div>
-        <br>
-        <div>
-        <h5 class="light">Wanna a different Joke?</h5><br>
-
-        <button id="get-joke-btn" class="btn waves-effect waves-light orange lighten-2 "type ="submit">Get a different joke</button>
-      
-    </div>
          <!-- Who is the card from? -->
-         <div>
-            <h5 class="light">Sign your card</h5>
-            <br>
-            <input type="text" id="senderText" placeholder=" Your Name">
-            <br><br>
-            </div>
+      <div>
+      <h5 class="light">Sign your card</h5>
+      <br>
+      <input type="text" id="senderText" placeholder=" Your Name">
+      <br><br>
+      </div>
                 <!-- Add a picture -->
-                <div id="add-image">
                     <h5 class="light">Add a picture</h5><br>
-                          <button class = "add-image  waves-effect waves-light btn" data-category = "cat" value="kitten">Kitten 🐾</button>
+                    <div id="add-image">
+                        <button class = "add-image  waves-effect waves-light btn" data-category = "cat" value="kitten">Kitten 🐾</button>
                         <button class = "add-image  waves-effect waves-light btn" data-category = "dog" value="puppy">Puppy &#128054</button>
                         <button class = "add-image  waves-effect waves-light btn" data-category = "koala" value="koala">Surprise 🐨</button>
-                        <button class = "add-image  waves-effect waves-light btn" data-category = "holiday" value="holiday">Holidays &#129412</button>
+                      <button class = "add-image  waves-effect waves-light btn" data-category = "holiday" value="holiday">Holidays &#129412</button>
                         <button class = "add-image  waves-effect waves-light btn" data-category = "birthday" value="birthday">Birthdays &#129412</button>
-                    <br><br></div>
+                    </div>
         <div id="joke-history"></div>
         <!-- Add colors
         <h5 class="light">Select the background and font colors</h5><br>
@@ -68,11 +62,7 @@
         <span>Font color</span><br>
         <input type="color" id="font-color"><br>
         <br> -->
-
-
-   
         <!-- Make your card by clicking on this button -->
-    </form>
     </div>
    
     <div class="col s12 m8  justify-space-between container" id="card-container">
@@ -108,7 +98,6 @@
 </main>
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js" integrity="sha512-tVYBzEItJit9HXaWTPo8vveXlkK62LbA+wez9IgzjTmFNLMBO1BEYladBw2wnM3YURZSMUyhayPCoLtjGh84NQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
