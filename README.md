@@ -23,6 +23,8 @@ WHEN I am finished my selections
 THEN I am presented with a greeting card with a joke and a picture on it
 WHEN I view the card
 THEN I get a good laugh and I can save it and send it to my friend
+WHEN I want to send another card
+THEN I see the last joke saved on the card
 ```
 
 ## Built with

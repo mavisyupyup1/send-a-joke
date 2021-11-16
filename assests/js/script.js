@@ -71,6 +71,7 @@ var writeJoke = function(){
     jokeTextEl.append(jokeDeliveryText);
     saveJoke();
 }
+
 var saveJoke =function(){
     //create jokeToPush as an object {} rather than an array []
     var jokeToPush ={};
@@ -79,31 +80,21 @@ var saveJoke =function(){
     jokeToPush.delivery = jokeDeliveryText.innerText;
     jokeHistory.push(jokeToPush)
     var historyJokeBtn = document.createElement("list-group-item")
-    historyJokeBtn.className = "btn waves-effect waves-light blue lighten-2 "
+    historyJokeBtn.className = "btn history-btn waves-effect waves-light blue lighten-2 "
     historyJokeBtn.textContent = jokeTextEl.textContent
     jokeHistoryEl.append(historyJokeBtn)
     localStorage.setItem("joke",JSON.stringify(jokeHistory))
 }
-var reWriteJoke =function(){
-   
-    var savedJoke = localStorage.getItem("joke")
-    console.log(savedJoke);
-    //savedJoke is a string value. in order to use this it have to be convert back to an object
-    var savedJokeArr =JSON.parse(localStorage.getItem("joke"));
-    console.log(savedJokeArr);
-    console.log(savedJokeArr[0].setup);
-    console.log(savedJokeArr[0].delivery);
-    for (var i=0; i<savedJokeArr.length;i++){
+
+var reWriteJoke =function(event){
         jokeTextEl.textContent="";
         var jokeSetupText = document.createElement("p")
-        jokeSetupText.textContent = savedJokeArr[i].setup;
-        console.log(savedJokeArr[i].setup)
+        var jokeHistoryBtn = document.querySelector("#joke-history")
+        console.log(jokeHistoryBtn)
+        jokeSetupText.textContent = event.target.textContent
         jokeTextEl.append(jokeSetupText);
-        var jokeDeliveryText = document.createElement("p")
-        jokeDeliveryText.textContent = savedJokeArr[i].delivery;
-        jokeTextEl.append(savedJokeArr[i].delivery)  
     }
-}
+
 var addImageHandler = function(event){
    event.preventDefault();
     var category = event.target.getAttribute("data-category");
@@ -172,7 +163,7 @@ saveBtn.addEventListener('click', function(event) {
     link.href = uri;
     link.click();
   }
-jokeHistoryEl.addEventListener("click",reWriteJoke)
+$(jokeHistoryEl).on('click','.history-btn',reWriteJoke)
 // add event listener to listen to whole page and bring back the save btn
 document.documentElement.addEventListener("click", function(){
     saveBtn.style.display="block"
