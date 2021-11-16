@@ -136,12 +136,13 @@ console.log(addImg)
 
 getJokeBtn.addEventListener("click", getJoke)
 addImageBtn.addEventListener("click", addImageHandler)
-addJokeBtn.addEventListener("click",getJoke)
+$(addJokeBtn).on("click",".cardType",getJoke)
 $(document).on("load",".card-img",function(){
     $(loader).classList.add(".disappear")
 })
 receiverTextEl.addEventListener("keyup",function(event){
     receiverNameEl.innerText = event.target.value
+   
 })
 senderTextEl.addEventListener("keyup",function(event){
     senderNameEl.innerText = event.target.value
@@ -152,6 +153,9 @@ addJokeBtn.addEventListener("click", function(event){
 
 saveBtn.addEventListener('click', function(event) {
     event.preventDefault();
+    //clear receiver and sender name after saving the card
+    receiverTextEl.value="";
+    senderTextEl.value="";
     $(this).attr("style", "display: none");
     html2canvas(cardContainerEl, {
         allowTaint: true,
