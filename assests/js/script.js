@@ -27,6 +27,7 @@ var jokeSetupText="";
 var jokeDeliveryText="";
 var loader = document.querySelector(".loader")
 var jokeHistoryEl =document.getElementById("joke-history")
+var jokeHistoryTitle = document.getElementById("joke-history-title")
 
 var getJoke = function(event){
     event.preventDefault();
@@ -79,6 +80,7 @@ var saveJoke =function(){
     jokeToPush.setup = jokeSetupText.innerText;
     jokeToPush.delivery = jokeDeliveryText.innerText;
     jokeHistory.push(jokeToPush)
+    jokeHistoryTitle.style.display ="block"
     var historyJokeBtn = document.createElement("list-group-item")
     historyJokeBtn.className = "btn history-btn waves-effect waves-light blue lighten-2 "
     historyJokeBtn.innerHTML += jokeSetupText.textContent
