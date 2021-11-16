@@ -33,6 +33,7 @@ THEN I get a good laugh and I can save it and send it to my friend
 ## Third Party Libraries
 * JQuery
 * MaterializeCSS
+* html2canvas
 
 ## Website
 https://mavisyupyup1.github.io/project-01-send-a-joke/

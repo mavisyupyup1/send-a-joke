@@ -17,11 +17,11 @@ var jokeSetupEl = document.querySelector(".joke-setup-text");
 var jokeDeliveryEl = document.querySelector(".joke-delivery-text");
 var jokeTextEl = document.getElementById("joke-text")
 var cardImageEl =document.getElementById("placeholder-img")
+var jokeHistory=[];
 var imgUrl = "";
 var jokeSetup ="";
 var jokeDelivery ="";
 var loader = document.querySelector(".loader")
-console.log(jokeHistory)
 var jokeHistoryEl =document.getElementById("joke-history")
 var getJoke = function(event){
     event.preventDefault();
@@ -69,18 +69,35 @@ var writeJoke = function(){
     //create jokeToPush as an object {} rather than an array []
     var jokeToPush ={};
     //add properties to object
-    jokeToPush.setup = jokeSetupText;
-    jokeToPush.delivery = jokeDeliveryText;
-    console.log(jokeToPush.setup)
-    console.log(jokeToPush.delivery)
-    jokeHistory[0].setup.push(jokeSetupText.innerText)
-    console.log(jokeHistory[0].setup)
+    jokeToPush.setup = jokeSetupText.innerText;
+    jokeToPush.delivery = jokeDeliveryText.innerText;
+    jokeHistory.push(jokeToPush)
     var historyJokeBtn = document.createElement("list-group-item")
     historyJokeBtn.className = "btn waves-effect waves-light blue lighten-2 "
-    console.log(jokeTextEl)
-    historyJokeBtn.textContent = jokeTextEl.innerText
+    historyJokeBtn.textContent = jokeTextEl.textContent
     jokeHistoryEl.append(historyJokeBtn)
     localStorage.setItem("joke",JSON.stringify(jokeHistory))
+}
+var reWriteJoke =function(){
+   
+    var savedJoke = localStorage.getItem("joke")
+    console.log(savedJoke);
+    //savedJoke is a string value. in order to use this it have to be convert back to an object
+    var savedJokeArr =JSON.parse(localStorage.getItem("joke"));
+    console.log(savedJokeArr);
+    console.log(savedJokeArr[0].setup);
+    console.log(savedJokeArr[0].delivery);
+    for (var i=0; i<savedJokeArr.length;i++){
+        jokeTextEl.textContent="";
+       
+        var jokeSetupText = document.createElement("p")
+        jokeSetupText.textContent = savedJokeArr[i].setup;
+        console.log(savedJokeArr[i].setup)
+        jokeTextEl.append(jokeSetupText);
+        var jokeDeliveryText = document.createElement("p")
+        jokeDeliveryText.textContent = savedJokeArr[i].delivery;
+        jokeTextEl.append(savedJokeArr[i].delivery)  
+    }
 }
 var addImageHandler = function(event){
    event.preventDefault();
@@ -135,7 +152,7 @@ addJokeBtn.addEventListener("click", function(event){
 
 saveBtn.addEventListener('click', function(event) {
     event.preventDefault();
-  
+    $(this).attr("style", "display: none");
     html2canvas(cardContainerEl, {
         allowTaint: true,
         logging: true,
@@ -152,3 +169,8 @@ saveBtn.addEventListener('click', function(event) {
     link.href = uri;
     link.click();
   }
+jokeHistoryEl.addEventListener("click",reWriteJoke)
+// add event listener to listen to whole page and bring back the save btn
+document.documentElement.addEventListener("click", function(){
+    saveBtn.style.display="block"
+})
