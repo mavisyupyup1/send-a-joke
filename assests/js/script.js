@@ -81,7 +81,9 @@ var saveJoke =function(){
     jokeHistory.push(jokeToPush)
     var historyJokeBtn = document.createElement("list-group-item")
     historyJokeBtn.className = "btn history-btn waves-effect waves-light blue lighten-2 "
-    historyJokeBtn.textContent = jokeTextEl.textContent
+    historyJokeBtn.innerHTML += jokeSetupText.textContent
+    historyJokeBtn.innerHTML +="   <br/>";
+    historyJokeBtn.innerHTML +=jokeDeliveryText.textContent 
     jokeHistoryEl.append(historyJokeBtn)
     localStorage.setItem("joke",JSON.stringify(jokeHistory))
 }
