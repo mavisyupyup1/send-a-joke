@@ -123,7 +123,6 @@ saveBtn.addEventListener('click', function (event) {
     $(this).attr("style", "display: none");
     html2canvas(cardContainerEl, {
         allowTaint: true,
-        logging: true,
         useCORS: true
     }).then(function (canvas) {
         let myImage = canvas.toDataURL("image/png");
