@@ -1,5 +1,25 @@
 # project-01-send-a-joke
 
+## Description 
+Send-a-Joke is a joke card generator that can lift anyone’s spirits on any occasion through the combined power of humor and adorable animals. The app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript. User can make selection of occasion, joke type, picture type and generate a greeting card and save the card as a .PNG file. Previous viewed jokes are saved in local storage and can be brought back. 
+
+## Built with
+* HTML
+* CSS
+* JavaScript
+
+## Third Party Libraries
+* JQuery
+* MaterializeCSS
+* html2canvas
+
+## Server side APIs
+* https://v2.jokeapi.dev/joke/
+* https://api.icndb.com/jokes/random/
+
+## Website
+https://mavisyupyup1.github.io/project-01-send-a-joke/
+
 ## User Story
 
 ```
@@ -26,19 +46,6 @@ THEN I get a good laugh and I can save it and send it to my friend
 WHEN I want to re-open the app to send another card
 THEN I see the last joke saved on the card
 ```
-
-## Built with
-* HTML
-* CSS
-* JavaScript
-
-## Third Party Libraries
-* JQuery
-* MaterializeCSS
-* html2canvas
-
-## Website
-https://mavisyupyup1.github.io/project-01-send-a-joke/
 
 ## Wire framing
 ![send-a-joke-wire-framing](assests/images/send-a-joke-wire-framing.png)
