@@ -1,4 +1,4 @@
-# project-01-send-a-joke
+# send-a-joke
 
 ## Description 
 Send-a-Joke is a joke card generator that can lift anyone’s spirits on any occasion through the combined power of humor and adorable animals. The app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript. User can make selection of occasion, joke type, picture type and generate a greeting card and save the card as a .PNG file. Previous viewed jokes are saved in local storage and can be brought back. 
